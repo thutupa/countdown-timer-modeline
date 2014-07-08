@@ -33,12 +33,14 @@
     (display-time)))
 
 (defun countdown-timer-start ()
+  (interactive)
   (progn
     (if (null (member 'countdown-timer-string global-mode-string))
 	(countdown-timer-setup))
     (setq countdown-timer-end-time (+ 300 (float-time)))))
 
 (defun countdown-timer-stop ()
+  (interactive)
   (progn
     (remove-hook 'display-time-hook 'countdown-timer-update-string)
     (setq display-time-interval countdown-timer-saved-display-time-interval)
